@@ -13,13 +13,4 @@ class ValidationServiceProvider extends ServiceProvider
             return new Validator();
         });
     }
-
-    public function boot()
-    {
-        $validator = $this->app->resolve(Validator::class);
-
-        $validator->extends('digits', function ($number, $params) {
-            return strlen($number) === (int) $params[0];
-        }, ':attribute must be of length :value');
-    }
 }

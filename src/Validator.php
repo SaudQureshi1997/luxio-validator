@@ -58,7 +58,11 @@ class Validator
             'numeric' => ':attribute must be a number',
             'required' => ':attribute is required',
             'max' => ':attribute must not be more than :value',
-            'min' => ':attribute must not be less than :value'
+            'min' => ':attribute must not be less than :value',
+            'digits' => ':attribute must contain :value digits',
+            'date' => ':attribute must be a valid date',
+            'email' => ':attribute must be a valid email',
+            'present' => ':attribute must be present'
         ];
     }
 
@@ -133,6 +137,111 @@ class Validator
                             $key => $this->getMessage('string', $key)
                         ]
                     );
+                }
+            },
+
+            'digits' => function (string $key, $params = null) {
+                if (empty($this->inputs[$key])) {
+                    return;
+                }
+
+                if (strlen($this->inputs[$key]) !== (int) $params[0]) {
+                    $this->channel->push(
+                        [
+                            $key => $this->getMessage('digits', $key)
+                        ]
+                    );
+                }
+            },
+
+            'date' => function (string $key, $params = null) {
+                if (empty($this->inputs[$key])) {
+                    return;
+                }
+
+                $d = DateTime::createFromFormat($params[0] ?? 'Y-m-d', $this->inputs[$key]);
+                return $d && $d->format($params[0] ?? 'Y-m-d') === $this->inputs[$key];
+            },
+
+            'email' => function (string $key, $params = null) {
+                if (empty($this->inputs[$key])) {
+                    return;
+                }
+
+                if (filter_var($this->inputs[$key], FILTER_VALIDATE_EMAIL) === false) {
+                    $this->channel->push(
+                        [
+                            $key => $this->getMessage('email', $key)
+                        ]
+                    );
+                }
+            },
+
+            'nullable' => function (string $key, $params = null) {
+                if (empty($this->inputs[$key])) {
+                    return;
+                }
+            },
+
+            'present' => function (string $key, $params = null) {
+                if (!array_key_exists($key, $this->inputs)) {
+                    $this->channel->push(
+                        [
+                            $key => $this->getMessage('present', $key)
+                        ]
+                    );
+                }
+            },
+
+            'min' => function (string $key, $params = null) {
+                if (empty($this->inputs[$key])) {
+                    return;
+                }
+
+                if (is_string($this->inputs[$key])) {
+                    if (strlen($this->inputs[$key]) < $params[0]) {
+                        return $this->channel->push(
+                            [
+                                $key => $this->getMessage('min', $params[0])
+                            ]
+                        );
+                    }
+                }
+
+                if (is_array($this->inputs[$key])) {
+                    if (count($this->inputs[$key]) < $params[0]) {
+                        return $this->channel->push(
+                            [
+                                $key => $this->getMessage('min', $params[0])
+                            ]
+                        );
+                    }
+                }
+            },
+
+            'max' => function (string $key, $params = null) {
+                if (empty($this->inputs[$key])) {
+                    return;
+                }
+
+                if (is_string($this->inputs[$key])) {
+                    if (strlen($this->inputs[$key]) > $params[0]) {
+                        return $this->channel->push(
+                            [
+                                $key => $this->getMessage('max', $params[0])
+                            ]
+                        );
+                    }
+                }
+
+                if (is_array($this->inputs[$key])) {
+                    if (count($this->inputs[$key]) > $params[0]) {
+                        return $this->channel->push(
+                            [
+                                $key => $this->getMessage('max', $params[0])
+                            ]
+                        );
+                    }
                 }
             }
         ];
