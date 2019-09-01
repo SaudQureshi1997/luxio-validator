@@ -1,0 +1,29 @@
+{
+    "name": "luxio/validator",
+    "description": "Coroutine Validator for Luxio - Swoole based Micro-framework.",
+    "type": "library",
+    "authors": [{
+            "name": "Akshay Khale",
+            "email": "khaleakshay@gmail.com"
+        },
+        {
+            "name": "SaudQureshi",
+            "email": "saudken52@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Luxio\\Utils\\": "src/",
+            "Luxio\\Utils\\Providers\\": "providers/",
+            "Luxio\\Support\\Facades\\": "facades/"
+        }
+    },
+    "require": {
+        "php": ">=7.1",
+        "ext-swoole": ">=2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.3"
+    },
+    "license": "MIT"
+}
