@@ -1,9 +1,9 @@
 <?php
 
-namespace Luxio\Support\Facades;
+namespace elphis\Support\Facades;
 
-use Luxio\Support\Facades\Facade;
-use Luxio\Utils\Validator as CoreValidator;
+use elphis\Support\Facades\Facade;
+use elphis\Utils\Validator as CoreValidator;
 
 class Validator extends Facade
 {

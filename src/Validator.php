@@ -1,9 +1,9 @@
 <?php
 
-namespace Luxio\Utils;
+namespace elphis\Utils;
 
 use BadMethodCallException;
-use Luxio\Exceptions\ValidationException;
+use elphis\Exceptions\ValidationException;
 use Closure;
 use Swoole\Coroutine\Channel;
 
@@ -148,7 +148,7 @@ class Validator
                 if (strlen($this->inputs[$key]) !== (int) $params[0]) {
                     $this->channel->push(
                         [
-                            $key => $this->getMessage('digits', $key)
+                            $key => $this->getMessage('digits', $key, $params[0])
                         ]
                     );
                 }

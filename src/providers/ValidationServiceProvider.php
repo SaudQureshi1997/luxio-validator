@@ -1,9 +1,9 @@
 <?php
 
-namespace Luxio\Providers;
+namespace elphis\Providers;
 
-use Luxio\Providers\ServiceProvider;
-use Luxio\Utils\Validator;
+use elphis\Providers\ServiceProvider;
+use elphis\Utils\Validator;
 
 class ValidationServiceProvider extends ServiceProvider
 {

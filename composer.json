@@ -1,6 +1,6 @@
 {
-    "name": "luxio/validator",
-    "description": "Coroutine Validator for Luxio - Swoole based Micro-framework.",
+    "name": "elphis/validator",
+    "description": "Coroutine Validator for elphis - Swoole based Micro-framework.",
     "type": "library",
     "authors": [{
             "name": "Akshay Khale",
@@ -13,9 +13,7 @@
     ],
     "autoload": {
         "psr-4": {
-            "Luxio\\": "src/",
-            "Luxio\\Providers\\": "providers/",
-            "Luxio\\Support\\Facades\\": "facades/"
+            "elphis\\": "src/"
         }
     },
     "require": {

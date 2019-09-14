@@ -1,7 +1,7 @@
 <?php
 
-use Luxio\Exceptions\ValidationException;
-use Luxio\Utils\Validator;
+use elphis\Exceptions\ValidationException;
+use elphis\Utils\Validator;
 use PHPUnit\Framework\TestCase;
 
 class ValidationTest extends TestCase
