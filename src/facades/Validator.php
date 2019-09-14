@@ -1,9 +1,9 @@
 <?php
 
-namespace elphis\Support\Facades;
+namespace Elphis\Support\Facades;
 
-use elphis\Support\Facades\Facade;
-use elphis\Utils\Validator as CoreValidator;
+use Elphis\Support\Facades\Facade;
+use Elphis\Utils\Validator as CoreValidator;
 
 class Validator extends Facade
 {

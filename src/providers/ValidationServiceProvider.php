@@ -1,9 +1,9 @@
 <?php
 
-namespace elphis\Providers;
+namespace Elphis\Providers;
 
-use elphis\Providers\ServiceProvider;
-use elphis\Utils\Validator;
+use Elphis\Providers\ServiceProvider;
+use Elphis\Utils\Validator;
 
 class ValidationServiceProvider extends ServiceProvider
 {

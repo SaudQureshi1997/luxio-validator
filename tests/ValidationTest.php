@@ -1,7 +1,7 @@
 <?php
 
-use elphis\Exceptions\ValidationException;
-use elphis\Utils\Validator;
+use Elphis\Exceptions\ValidationException;
+use Elphis\Utils\Validator;
 use PHPUnit\Framework\TestCase;
 
 class ValidationTest extends TestCase

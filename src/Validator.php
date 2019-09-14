@@ -1,9 +1,9 @@
 <?php
 
-namespace elphis\Utils;
+namespace Elphis\Utils;
 
 use BadMethodCallException;
-use elphis\Exceptions\ValidationException;
+use Elphis\Exceptions\ValidationException;
 use Closure;
 use Swoole\Coroutine\Channel;
 
