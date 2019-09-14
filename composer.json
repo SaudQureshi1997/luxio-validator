@@ -13,8 +13,8 @@
     ],
     "autoload": {
         "psr-4": {
-            "Luxio\\Utils\\": "src/",
-            "Luxio\\Utils\\Providers\\": "providers/",
+            "Luxio\\": "src/",
+            "Luxio\\Providers\\": "providers/",
             "Luxio\\Support\\Facades\\": "facades/"
         }
     },
